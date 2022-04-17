@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Heading, Container, Flex, Spacer } from "@chakra-ui/react";
+import { Cart } from "../Cart/Cart";
 
-import { Cart } from "./Cart";
+
 
 export const MyMenu = () => {
 

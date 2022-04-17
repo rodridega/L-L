@@ -86,7 +86,7 @@ export const Card = ({ prod }) => {
             mx={8}
             isTruncated
             align={{ base: "center", md: "stretch" }}
-            fontSize={"3xl"}
+            fontSize={"2xl"}
           >
             {prod.title}
           </Text>
