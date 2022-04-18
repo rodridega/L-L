@@ -19,21 +19,23 @@ export const ProductoCarrito = ({
 
   return (
     <>
-      <Tbody key={id} fontSize={'xl'}>
-        <Tr>
-          <Td>
+      <Tbody key={id} fontSize={{base: '10' , md: 'xl'}}>
+        <Tr >
+          <Td >
             <Image src={image} />
           </Td>
           <Td>{title}</Td>
-          <Td isNumeric>${price}</Td>
-          <Td isNumeric>x{cantidad}</Td>
-          <Td>
+          <Td >${price}</Td>
+          <Td >x{cantidad}</Td>
+          <Td padding={0} paddingRight={2}>
             <Button
               bgColor={"purple.300"}
               _hover={{
                 bgColor: "purple.400",
               }}
               onClick={quitarProducto}
+              size={"xs"}
+              
             >
               X
             </Button>

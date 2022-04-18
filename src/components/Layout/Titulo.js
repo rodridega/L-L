@@ -32,11 +32,18 @@ export const Titulo = () => {
           <br /> <Text as={"span"}>Productos de Limpieza</Text>{" "}
         </Heading>
         <Text fontSize={{ base: "md", lg: "2xl" }} color={"gray.500"}>
-          Envios a domicilio
+          Envios a domicilio sin cargo, pidiendo con 24 hs de anticipación
         </Text>
         <Divider />
         <Text fontSize={{ base: "md", lg: "xl" }} color={"gray.500"}>
           Paraná, Oro Verde, San Benito y Colonia Avellaneda
+        
+        </Text>
+        <Divider />
+        <Text fontSize={{ base: "md", lg: "xl" }} color={"gray.500"}>
+          Hace tu compra por la App!
+          O contactanos al 3434466701
+        
         </Text>
       </Stack>
     </Flex>

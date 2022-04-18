@@ -35,7 +35,7 @@ export const Carousel = () => {
     <Box
       position={"relative"}
       height={{ base: "600px", md: "700px", lg: "800px" }}
-      width={{ base: "400px", md: "600px", lg: "450px", xl: "600px" }}
+      width={{ base: "300px", md: "600px", lg: "450px", xl: "600px" }}
       margin={"0 auto"}
       overflow={"hidden"}
     >
@@ -63,7 +63,7 @@ export const Carousel = () => {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="purple"
+        colorScheme="orange"
         borderRadius="full"
         position="absolute"
         left={side}
@@ -77,7 +77,7 @@ export const Carousel = () => {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="purple"
+        colorScheme="orange"
         borderRadius="full"
         position="absolute"
         right={side}
