@@ -1,7 +1,6 @@
 import { Box, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+
 import { ShopContext } from "../../context/ShopContext";
 import { Card } from "./Card";
 

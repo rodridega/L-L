@@ -19,37 +19,12 @@ import {
 import { ShopContext } from "../../context/ShopContext";
 
 export const Card = ({ prod }) => {
-  let cantidad;
+  
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { setProdCarrito, prodCarrito } = useContext(ShopContext);
+  const { handleProduct } = useContext(ShopContext);
 
-  console.log();
-  const handleProduct = () => {
-    const prodObj = {
-      title: prod.title,
-      price: prod.price,
-      image: prod.image,
-      id: prod.id,
-      cantidad: 1,
-    };
-
-    const existe = prodCarrito.some((prod) => prod.title === prodObj.title);
-    if (existe) {
-      const compras = prodCarrito.map((compra) => {
-        if (compra.title === prodObj.title) {
-          compra.cantidad++;
-          compra.price += prodObj.price;
-          return compra;
-        } else {
-          return compra;
-        }
-      });
-      setProdCarrito([...compras]);
-    } else {
-      setProdCarrito([...prodCarrito, prodObj]);
-    }
-  };
+  
 
   return (
     <>
@@ -62,7 +37,7 @@ export const Card = ({ prod }) => {
           cursor: "pointer",
         }}
       >
-        <AspectRatio ratio={1 / 1}>
+        <AspectRatio ratio={1 / 1} backgroundColor={"white"}>
           <Image
             src={prod.image}
             alt={prod.title}
@@ -93,7 +68,7 @@ export const Card = ({ prod }) => {
 
           <Divider />
           <Text my={2} color="gray.500">
-            Precio: {prod.price} $
+            Precio: ${prod.price}
           </Text>
           <Button
             fontSize={{ base: 12, md: 14 }}
@@ -105,7 +80,7 @@ export const Card = ({ prod }) => {
               background: "orange.200",
               color: "black",
             }}
-            onClick={handleProduct}
+            onClick={() => handleProduct(prod)}
           >
             Agregar al Canasto
           </Button>
@@ -146,12 +121,12 @@ export const Card = ({ prod }) => {
               <Text>{prod.description}</Text>
               <Divider />
               <Text my={2} color="gray.800" align={"right"}>
-                Precio: {prod.price} $
+                Precio: ${prod.price} 
               </Text>
             </Stack>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="orange" mr={3} onClick={handleProduct}>
+            <Button colorScheme="orange" mr={3} onClick={() => handleProduct(prod)}>
               Agregar al carrito
             </Button>
             <Button variant="ghost" onClick={onClose}>

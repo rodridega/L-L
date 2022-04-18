@@ -41,7 +41,8 @@ export const Footer = () => {
           </ButtonGroup>
         </Stack>
         <Text fontSize="sm" color="white" textAlign={"center"}>
-          &copy; {new Date().getFullYear()} L&L - Productos de Limpieza
+          &copy; {new Date().getFullYear()} Deganutti Rodrigo - Todos los
+          derechos reservados
         </Text>
       </Stack>
     </Box>

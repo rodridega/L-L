@@ -1,5 +1,4 @@
 import {
-  Button,
   Divider,
   Flex,
   Heading,
@@ -39,20 +38,6 @@ export const Titulo = () => {
         <Text fontSize={{ base: "md", lg: "xl" }} color={"gray.500"}>
           Paraná, Oro Verde, San Benito y Colonia Avellaneda
         </Text>
-        <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-          <Button
-            rounded={"full"}
-            bg={"purple.700"}
-            color={"white"}
-            _hover={{
-              bg: "orange.500",
-            }}
-            as={"a"}
-            href="index.html#titulo"
-          >
-            Ver productos
-          </Button>
-        </Stack>
       </Stack>
     </Flex>
   );

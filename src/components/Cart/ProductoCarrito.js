@@ -25,13 +25,13 @@ export const ProductoCarrito = ({
             <Image src={image} />
           </Td>
           <Td>{title}</Td>
-          <Td isNumeric>{price}</Td>
-          <Td isNumeric>{cantidad}</Td>
+          <Td isNumeric>${price}</Td>
+          <Td isNumeric>x{cantidad}</Td>
           <Td>
             <Button
-              bgColor={"pink.300"}
+              bgColor={"purple.300"}
               _hover={{
-                bgColor: "pink.400",
+                bgColor: "purple.400",
               }}
               onClick={quitarProducto}
             >

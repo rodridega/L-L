@@ -17,10 +17,12 @@ import {
   Badge,
   Button,
   Link,
-  useDisclosure
+  useDisclosure,
+  Text,
 } from "@chakra-ui/react";
 import { ProductoCarrito } from "./ProductoCarrito";
 import { ShopContext } from "../../context/ShopContext";
+import Swal from "sweetalert2";
 
 export const Cart = () => {
   const { prodCarrito, setProdCarrito } = useContext(ShopContext);
@@ -30,12 +32,27 @@ export const Cart = () => {
   let total = 0;
 
   const vaciarCarrito = () => {
-    let seguro = window.confirm("Esta seguro que quiere vaciar el carrito?");
-    seguro && setProdCarrito([]);
+    onClose();
+    Swal.fire({
+      title: "Estas seguro que queres vaciar el canasto?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si vacialo!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Vaciado!", "Has vaciado el canasto", "success");
+        setProdCarrito([]);
+      }
+    });
   };
 
   return (
     <>
+      <Text fontSize={"2xl"} mr={4}>
+        Carrito
+      </Text>
       <Button
         ref={btnRef}
         onClick={onOpen}
@@ -104,30 +121,32 @@ export const Cart = () => {
               {total !== 0 && (
                 <Tfoot>
                   <Tr>
-                    <Th colSpan={2}>TOTAL</Th>
-                    <Th isNumeric>{total.toFixed(2)} </Th>
+                    <Th colSpan={2} fontSize={'2xl'}>TOTAL</Th>
+                    <Th isNumeric fontSize={'xl'}>${total.toFixed(2)} </Th>
                   </Tr>
                 </Tfoot>
               )}
             </Table>
           </DrawerBody>
+          {total !== 0 && (
+            <DrawerFooter>
+              <Link
+                href={`https://wa.me/5493434466701?text=Hola!%20Quiero%20comprar%20estos%20productos%20:%0A${prodCarrito
+                  .map((prod) => `${prod.title} x ${prod.cantidad}%0A`)
+                  .join("")}%0ATotal:%20${total}$`}
+                target={"_blank"}
+              >
+                <Button mr={3} bgColor={"green.400"}>
+                  Comprar
+                </Button>
+              </Link>
 
-          <DrawerFooter>
-            <Link
-              href={`https://wa.me/5493434682124?text=Hola!%20Quiero%20comprar%20estos%20productos%20:%0A${prodCarrito
-                .map((prod) => `${prod.title} x ${prod.cantidad}%0A`)
-                .join("")}%0ATotal:%20${total}$`}
-              target={"_blank"}
-            >
-              <Button mr={3} bgColor={"green.400"}>
-                Comprar
+              <Button bgColor={"red.400"} onClick={vaciarCarrito}>
+                Vaciar carrito
               </Button>
-            </Link>
-
-            <Button bgColor={"red.400"} onClick={vaciarCarrito}>
-              Vaciar carrito
-            </Button>
-          </DrawerFooter>
+            </DrawerFooter>
+          )}
+          
         </DrawerContent>
       </Drawer>
     </>

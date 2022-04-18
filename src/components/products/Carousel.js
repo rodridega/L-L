@@ -58,7 +58,7 @@ export const Carousel = () => {
         color={"purple.700"}
         fontWeight={"semibold"}
       >
-        Ofertas
+        Novedades!
       </Text>
       {/* Left Icon */}
       <IconButton
@@ -90,24 +90,21 @@ export const Carousel = () => {
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {carousel.map(({ imagen, id }) => {
-          if (imagen !== null) {
-            return (
+        {carousel.map(
+          ({ image, id }) =>
+            image && (
               <Box
                 key={id}
                 position={"relative"}
                 height={"600px"}
                 width={"100%"}
-                backgroundImage={`url(${imagen})`}
+                backgroundImage={`url(${image})`}
                 backgroundSize={"contain"}
                 backgroundPosition={"center"}
                 backgroundRepeat={"no-repeat"}
               />
             )
-          } else{
-            return
-          }
-        })}
+        )}
       </Slider>
     </Box>
   );

@@ -9,6 +9,7 @@ export const ShopProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [carousel, setCarousel] = useState([]);
 
+
   useEffect(() => {
     setLoading(true);
 
@@ -20,8 +21,9 @@ export const ShopProvider = ({ children }) => {
       .then((rep) => {
         const data = JSON.parse(rep.substr(47).slice(0, -2));
         const carouselImages = data.table.rows.map(({ c }) => ({
-          imagen: c[5]?.v,
+          image: c[5]?.v,
           id: c[4]?.v,
+          price: c[6]?.v
         }));
         const objetos = data.table.rows.map(({ c }) => ({
           title: c[0]?.v,
@@ -41,6 +43,32 @@ export const ShopProvider = ({ children }) => {
       });
   }, [setCards, setCarousel]);
 
+  const handleProduct = (prod) => {
+    const prodObj = {
+      title: prod.title,
+      price: prod.price,
+      image: prod.image,
+      id: prod.id,
+      cantidad: 1,
+    };
+
+    const existe = prodCarrito.some((prod) => prod.title === prodObj.title);
+    if (existe) {
+      const compras = prodCarrito.map((compra) => {
+        if (compra.title === prodObj.title) {
+          compra.cantidad++;
+          compra.price += prodObj.price;
+          return compra;
+        } else {
+          return compra;
+        }
+      });
+      setProdCarrito([...compras]);
+    } else {
+      setProdCarrito([...prodCarrito, prodObj]);
+    }
+  };
+
 
   return (
     <ShopContext.Provider
@@ -50,7 +78,8 @@ export const ShopProvider = ({ children }) => {
         cards,
         setCards,
         loading,
-        carousel
+        carousel,
+        handleProduct
       }}
     >
       {children}
