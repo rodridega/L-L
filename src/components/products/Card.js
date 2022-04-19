@@ -58,10 +58,10 @@ export const Card = ({ prod }) => {
             fontWeight="500"
             lineHeight={"1.5"}
             mt={2}
-            mx={8}
+            mx={4}
             isTruncated
             align={{ base: "center", md: "stretch" }}
-            fontSize={"2xl"}
+            fontSize={{base: "xs", md:"xl"}}
           >
             {prod.title}
           </Text>
@@ -71,18 +71,18 @@ export const Card = ({ prod }) => {
             Precio: ${prod.price}
           </Text>
           <Button
-            fontSize={{ base: 12, md: 14 }}
+            fontSize={{ base: 10, md: 14 }}
             alignSelf={"center"}
             w={"80%"}
             color={"white"}
-            bgColor={"orange.300"}
+            bgColor={"orange.500"}
             _hover={{
               background: "orange.200",
               color: "black",
             }}
             onClick={() => handleProduct(prod)}
           >
-            Agregar al Canasto
+            Agregar al Carrito
           </Button>
         </Stack>
       </Box>
