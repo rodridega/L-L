@@ -1,4 +1,11 @@
-html, body{
-   
-    background-color: #f7f7f7;
+html,
+body {
+  background-color: #f7f7f7;
+}
+@font-face {
+    font-family: segoe;
+    src: url('../../../public/fonts/segoepr_0.ttf');
+}
+*{
+    font-family: segoe;
 }

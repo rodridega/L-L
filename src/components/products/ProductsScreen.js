@@ -29,6 +29,7 @@ export const ProductsScreen = () => {
             fontSize={{ base: "4xl", md: "6xl" }}
             textAlign="center"
             color={"purple.800"}
+            fontFamily="segoe"
           >
             Productos
           </Heading>

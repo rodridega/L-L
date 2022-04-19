@@ -20,7 +20,7 @@ export const MyMenu = () => {
       <Container maxW="container.xl">
         <Flex>
           <Box>
-            <Heading as="h1">L&L</Heading>
+            <Heading as="h1" fontFamily={'segoe'}>L&L</Heading>
           </Box>
           <Spacer />
         </Flex>
