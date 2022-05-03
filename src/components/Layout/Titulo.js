@@ -45,11 +45,11 @@ export const Titulo = () => {
             <ListIcon as={MdCheckCircle} color="purple.500" />
             Lunes - Miercoles - Viernes
             <br />
-            Hasta las 13hs y de 17hs en adelante
+            de 17hs en adelante
           </ListItem>
           <ListItem>
             <ListIcon as={MdCheckCircle} color="purple.500" />
-            Sabado
+            Sabados
             <br />
             Hasta las 13:00
           </ListItem>

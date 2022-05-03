@@ -14,7 +14,7 @@ export const ProductsScreen = () => {
           thickness="4px"
           speed="0.65s"
           emptyColor="gray.200"
-          color="pink.500"
+          color="purple.500"
           size="xl"
           display={"flex"}
           mx={"auto"}
