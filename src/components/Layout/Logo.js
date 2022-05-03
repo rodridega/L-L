@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Logo = () => {
   return (
-    <Flex flex={1} marginTop={{base: '4rem', md: '3rem'}}  >
+    <Flex flex={1} marginTop={{base: '4rem', md: '3rem'}} id="logo" >
         <Image
           alt={"Logo"}
           objectFit={{base:"cover"}}

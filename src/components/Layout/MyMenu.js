@@ -1,12 +1,8 @@
 import React from "react";
-import { Box, Heading, Container, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Heading, Container, Flex, Spacer, Link } from "@chakra-ui/react";
 import { Cart } from "../Cart/Cart";
 
-
-
 export const MyMenu = () => {
-
-  
   return (
     <Box
       bg={"purple.700"}
@@ -20,7 +16,11 @@ export const MyMenu = () => {
       <Container maxW="container.xl">
         <Flex>
           <Box>
-            <Heading as="h1" fontFamily={'segoe'}>L&L</Heading>
+            <Link href={"index.html#logo"} scrollBehavior={"smooth"} textDecoration={"none"}>
+              <Heading as="h1" fontFamily={"segoe"}>
+                L&L
+              </Heading>
+            </Link>
           </Box>
           <Spacer />
         </Flex>

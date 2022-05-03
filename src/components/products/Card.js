@@ -31,10 +31,13 @@ export const Card = ({ prod }) => {
       <Box
         maxWidth="32rem"
         borderWidth={1}
+        borderRadius={4}
         _hover={{
           boxShadow:
             "inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px orange, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);",
           cursor: "pointer",
+          transition: "0.5s ease-in-out",
+          transform: "scale(1.05)"
         }}
       >
         <AspectRatio ratio={1 / 1} backgroundColor={"white"}>
@@ -44,7 +47,7 @@ export const Card = ({ prod }) => {
             key={prod.id}
             maxW="300px"
             margin={"auto"}
-            objectFit={"contain !important"}
+            objectFit={"contain"}
             p={4}
             onClick={onOpen}
           />
@@ -102,7 +105,9 @@ export const Card = ({ prod }) => {
                 p={2}
                 onClick={onOpen}
               />
+              
             </AspectRatio>
+            <Text fontSize={"9px"} textAlign={"center"} fontWeight={"thin"}>Las imagenes son a modo ilustrativo</Text>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>

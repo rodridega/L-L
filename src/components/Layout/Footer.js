@@ -74,9 +74,8 @@ export const Footer = () => {
           </ButtonGroup>
         </Stack>
       </Stack>
-      <Text fontSize="sm" color="white" textAlign={"center"} mt={"14"}>
-        &copy; {new Date().getFullYear()} Deganutti Rodrigo - Todos los derechos
-        reservados
+      <Text fontSize="xs" color="white" textAlign={"center"} mt={"14"}>
+        &copy; {new Date().getFullYear()} Hecho con ❤️ por Rodrigo
       </Text>
     </Box>
   );

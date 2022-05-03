@@ -23,7 +23,6 @@ export const ShopProvider = ({ children }) => {
         const carouselImages = data.table.rows.map(({ c }) => ({
           image: c[5]?.v,
           id: c[4]?.v,
-          price: c[6]?.v
         }));
         const objetos = data.table.rows.map(({ c }) => ({
           title: c[0]?.v,

@@ -5,7 +5,12 @@ import {
   Stack,
   Text,
   useBreakpointValue,
+  List,
+  ListItem,
+  ListIcon,
 } from "@chakra-ui/react";
+import { MdCheckCircle } from "react-icons/md";
+
 import React from "react";
 
 export const Titulo = () => {
@@ -34,17 +39,48 @@ export const Titulo = () => {
         <Text fontSize={{ base: "md", lg: "2xl" }} color={"gray.500"}>
           Envios a domicilio sin cargo, pidiendo con 24 hs de anticipación
         </Text>
+        
+        <List>
+          <ListItem>
+            <ListIcon as={MdCheckCircle} color="purple.500" />
+            Lunes - Miercoles - Viernes
+            <br />
+            Hasta las 13hs y de 17hs en adelante
+          </ListItem>
+          <ListItem>
+            <ListIcon as={MdCheckCircle} color="purple.500" />
+            Sabado
+            <br />
+            Hasta las 13:00
+          </ListItem>
+        </List>
         <Divider />
         <Text fontSize={{ base: "md", lg: "xl" }} color={"gray.500"}>
           Paraná, Oro Verde, San Benito y Colonia Avellaneda
-        
         </Text>
         <Divider />
         <Text fontSize={{ base: "md", lg: "xl" }} color={"gray.500"}>
-          Hace tu compra por la App!
-          O contactanos al 3434466701
-        
+          Hace tu compra por la App! O contactanos al 3434466701
         </Text>
+        <Stack color={"purple.800"} fontSize={{ base: "md", md: "2xl" }}>
+          <Text textAlign={"center"} fontSize={"xl"}>
+            METODOS DE PAGO <br />
+          </Text>
+          <List spacing={3} textAlign={"center"}>
+            <ListItem>
+              
+              Efectivo
+            </ListItem>
+            <ListItem>
+              
+              Transferencia Bancaria{" "}
+            </ListItem>
+            <ListItem>
+              
+              Mercado Pago
+            </ListItem>
+          </List>
+        </Stack>
       </Stack>
     </Flex>
   );
