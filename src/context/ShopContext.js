@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { getCarousel } from "../helpers/getCarousel";
+import { getProducts } from "../helpers/getProducts";
 
 export const ShopContext = React.createContext();
 
@@ -9,38 +11,22 @@ export const ShopProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [carousel, setCarousel] = useState([]);
 
-
   useEffect(() => {
     setLoading(true);
+    getProducts().then((data) => {
+      setCards(data);
+    });
 
-    const url =
-      "https://docs.google.com/spreadsheets/d/1jtWHp8GC9AXWp92L6is8ADLJ9u-14W2cVvDCG3V3WIA/gviz/tq?";
-
-    fetch(url)
-      .then((res) => res.text())
-      .then((rep) => {
-        const data = JSON.parse(rep.substr(47).slice(0, -2));
-        const carouselImages = data.table.rows.map(({ c }) => ({
-          image: c[5]?.v,
-          id: c[4]?.v,
-        }));
-        const objetos = data.table.rows.map(({ c }) => ({
-          title: c[0]?.v,
-          price: c[1]?.v,
-          description: c[2]?.v,
-          image: c[3]?.v,
-          id: c[4]?.v,
-        }));
-        setCards(objetos);
-        setCarousel(carouselImages);
-
+    getCarousel()
+      .then((data) => {
+        setCarousel(data);
       })
+
       .catch((err) => console.log(err))
       .finally(() => {
         setLoading(false);
-
       });
-  }, [setCards, setCarousel]);
+  }, []);
 
   const handleProduct = (prod) => {
     const prodObj = {
@@ -68,7 +54,6 @@ export const ShopProvider = ({ children }) => {
     }
   };
 
-
   return (
     <ShopContext.Provider
       value={{
@@ -78,7 +63,7 @@ export const ShopProvider = ({ children }) => {
         setCards,
         loading,
         carousel,
-        handleProduct
+        handleProduct,
       }}
     >
       {children}

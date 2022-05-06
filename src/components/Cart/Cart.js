@@ -84,26 +84,34 @@ export const Cart = () => {
         onClose={onClose}
         finalFocusRef={btnRef}
         size={"lg"}
-        
       >
         <DrawerOverlay />
-        <DrawerContent >
+        <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader textAlign={"center"} fontSize={{ base: "12", md: "md" }}>Tu Canasto</DrawerHeader>
+          <DrawerHeader
+            textAlign={"center"}
+            fontSize={{ base: "12", md: "md" }}
+          >
+            Tu Canasto
+          </DrawerHeader>
 
           <DrawerBody padding={0}>
-            <Table variant="simple" >
-              <Thead >
-                <Tr >
+            <Table variant="simple">
+              <Thead>
+                <Tr>
                   <Th fontSize={{ base: "8", md: "md" }}>Imagen</Th>
-                  <Th padding={2} fontSize={{ base: "8", md: "md" }}>Nombre</Th>
+                  <Th padding={2} fontSize={{ base: "8", md: "md" }}>
+                    Nombre
+                  </Th>
                   <Th padding={2} fontSize={{ base: "8", md: "md" }}>
                     Precio
                   </Th>
                   <Th padding={2} fontSize={{ base: "8", md: "md" }}>
                     Cantidad
                   </Th>
-                  <Th padding={2} fontSize={{ base: "8", md: "md" }}>X</Th>
+                  <Th padding={2} fontSize={{ base: "8", md: "md" }}>
+                    X
+                  </Th>
                 </Tr>
               </Thead>
               {prodCarrito.map(({ image, price, title, id, cantidad }) => {
@@ -120,11 +128,22 @@ export const Cart = () => {
                   />
                 );
               })}
+
               {total !== 0 && (
                 <Tfoot>
                   <Tr>
-                    <Th colSpan={2} fontSize={{base: 'xs', md:'2xl'}}>TOTAL</Th>
-                    <Th fontSize={{base: 'xs', md:'2xl'}}>${total.toFixed(2)} </Th>
+                    <Th colSpan={2} fontSize={{ base: "xs", md: "2xl" }}>
+                      TOTAL
+                    </Th>
+                    <Th fontSize={{ base: "xs", md: "2xl" }}>
+                      ${total.toFixed(2)}{" "}
+                    </Th>
+                  </Tr>
+                  <Tr>
+                    <Th colSpan={5} fontSize={{ base: "10px", md: "md" }} textAlign={"center"} backgroundColor={"purple.100"}>
+                      Al hacer click en COMPRAR se te redigira al Whatsapp del
+                      vendedor para coordinar el pago y el envío.
+                    </Th>
                   </Tr>
                 </Tfoot>
               )}
@@ -148,7 +167,6 @@ export const Cart = () => {
               </Button>
             </DrawerFooter>
           )}
-          
         </DrawerContent>
       </Drawer>
     </>
