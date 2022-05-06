@@ -60,7 +60,7 @@ export const Titulo = () => {
         </Text>
         <Divider />
         <Text fontSize={{ base: "md", lg: "xl" }} color={"gray.500"}>
-          Hace tu compra por la App! O contactanos al 3434466701
+          Hace tu compra por la Web! O contactanos al 3434466701
         </Text>
         <Stack color={"purple.800"} fontSize={{ base: "md", md: "2xl" }}>
           <Text textAlign={"center"} fontSize={"xl"}>

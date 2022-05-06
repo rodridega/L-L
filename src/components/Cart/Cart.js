@@ -141,7 +141,7 @@ export const Cart = () => {
                   </Tr>
                   <Tr>
                     <Th colSpan={5} fontSize={{ base: "10px", md: "md" }} textAlign={"center"} backgroundColor={"purple.100"}>
-                      Al hacer click en COMPRAR se te redigira al Whatsapp del
+                      Al hacer click en COMPRAR se te redirigira al Whatsapp del
                       vendedor para coordinar el pago y el envío.
                     </Th>
                   </Tr>
