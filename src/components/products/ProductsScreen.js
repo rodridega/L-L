@@ -30,7 +30,7 @@ export const ProductsScreen = () => {
         <Box maxW="90rem" margin={4}>
           <Heading
             as="h2"
-            py={28}
+            py={{base: "0.5rem", md: "5rem"}}
             pb={8}
             fontSize={{ base: "4xl", md: "6xl" }}
             textAlign="center"

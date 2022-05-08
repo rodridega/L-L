@@ -35,9 +35,7 @@ export const Card = ({ prod }) => {
         _hover={{
           boxShadow:
             "inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px orange, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);",
-          cursor: "pointer",
-          transition: "0.5s ease-in-out",
-          transform: "scale(1.05)"
+          
         }}
       >
         <AspectRatio ratio={1 / 1} backgroundColor={"white"}>
@@ -50,6 +48,11 @@ export const Card = ({ prod }) => {
             objectFit={"contain"}
             p={4}
             onClick={onOpen}
+            _hover={{
+              cursor: "pointer",
+          transition: "0.5s ease-in-out",
+          transform: "scale(1.1)",
+            }}
           />
         </AspectRatio>
         <Stack
@@ -70,13 +73,14 @@ export const Card = ({ prod }) => {
           </Text>
 
           <Divider />
-          <Text my={2} color="gray.500">
-            Precio: ${prod.price}
+          <Text fontSize={{ base:"md", md: "lg"}} my={2} color="gray.500">
+             ${prod.price}
           </Text>
           <Button
             fontSize={{ base: 10, md: 14 }}
             alignSelf={"center"}
             w={"80%"}
+            mb={"10px !important"}
             color={"white"}
             bgColor={"orange.500"}
             _hover={{
@@ -90,9 +94,9 @@ export const Card = ({ prod }) => {
         </Stack>
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent w={"90vw"}>
           <ModalHeader>
             <AspectRatio ratio={1 / 1}>
               <Image
@@ -125,8 +129,8 @@ export const Card = ({ prod }) => {
 
               <Text>{prod.description}</Text>
               <Divider />
-              <Text my={2} color="gray.800" align={"right"}>
-                Precio: ${prod.price} 
+              <Text fontSize={{ base:"md", md: "lg"}} my={2} color="gray.800" align={"right"}>
+                 ${prod.price} 
               </Text>
             </Stack>
           </ModalBody>
@@ -134,7 +138,7 @@ export const Card = ({ prod }) => {
             <Button colorScheme="orange" mr={3} onClick={() => handleProduct(prod)}>
               Agregar al carrito
             </Button>
-            <Button variant="ghost" onClick={onClose}>
+            <Button colorScheme="purple" onClick={onClose}>
               Cerrar
             </Button>
           </ModalFooter>

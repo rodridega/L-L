@@ -34,7 +34,7 @@ export const Carousel = () => {
   return (
     <Box
       position={"relative"}
-      height={{ base: "600px", md: "700px", lg: "800px" }}
+      height={{ base: "500px", md: "700px", lg: "800px" }}
       width={{ base: "300px", md: "600px", lg: "450px", xl: "600px" }}
       margin={"0 auto"}
       overflow={"hidden"}
@@ -96,12 +96,15 @@ export const Carousel = () => {
               <Box
                 key={id}
                 position={"relative"}
-                height={"600px"}
+                height={{ base: "300px", md:"600px"}}
                 width={"100%"}
                 backgroundImage={`url(${image})`}
-                backgroundSize={"contain"}
+                backgroundSize={"cover"}
                 backgroundPosition={"center"}
                 backgroundRepeat={"no-repeat"}
+                borderRadius={"full"}
+                
+              
               />
             )
         )}
